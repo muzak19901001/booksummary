@@ -52,3 +52,21 @@
 .navbar {
   background-color: #fff;
 }
+
+.media-left img {
+  width: 80px;
+}
+
+.search {
+  margin-bottom: 40px;
+}
+
+.card-body {
+  float: left;
+  height: 450px;
+}
+
+.card-body img {
+  width: 200px;
+  height: 250px;
+}

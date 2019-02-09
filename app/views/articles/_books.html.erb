@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="card">
+    <% articles.each do |article| %>
+    <span class="border">
+        <div class="card-body col-md-3 text-center">
+            <img src="<%= article.image_url %>"> 
+            <h4 class="card-title text-left"><%= article.title %></h4>
+            <h6 class="card-subtitle mb-2 text-muted"><%= article.author %></h6>
+            <div class="text-center">
+              <%= link_to '要約を書く', article_path, class: 'btn  btn-primary ' %>
+            </div>
+        </div>
+      </span>  
+    <% end %>
+  </div>
+</div>  

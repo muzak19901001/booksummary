@@ -1,0 +1,15 @@
+<div class="user-profile">
+    <div class="user-icon text-center">
+      <% if @user.image.url %>
+        <img src="<%= @user.image.url %>" alt="" class="img-thumbnail" width="304" height="236" >
+      <% else %>
+        <img src="/images/no_image.png" width="304" height="236" >
+      <% end %>    
+    </div>
+    <div class="name text-center">
+        <h1><%= @user.name %></h1>
+    </div>
+    <div class="well well-lg text-center" width="400">
+        <%= @user.introduction %></div>
+    </div>
+</div>

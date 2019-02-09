@@ -10,11 +10,20 @@
       </button>
 			<a class="navbar-brand" href="/"><img src="/images/booksummary.logo.png" alt="Monolist"></a>
 		</div>
+		<% if logged_in? %>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
-        <li><a href="#">新規登録</a></li>
-        <li><a href="#">ログイン</a></li>
+        <li><a href="#">マイページ</a></li>
+        <li><%= link_to 'ログアウト', logout_path, method: :delete %></a></li>
       </ul>
 		</div>
+		<% else %>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+        <li><%= link_to '新規登録', new_user_path %></li>
+        <li><%= link_to 'ログイン', login_path %></li>
+      </ul>
+		</div>
+		<% end %>
 	</div>
 </nav>
