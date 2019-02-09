@@ -21,8 +21,8 @@ class Article < ApplicationRecord
   validates :title, presence: true, length: { maximum:255 }
   validates :author, presence: true, length: { maximum:255 }
   validates :publisher_name, presence: true, length: { maximum:255 }
-  validates :itemcaption, presence: true, length: { maximum: 300 }
-  validates :selesdate, presence: true, length: { maximum:255 }
+  validates :itemcaption, length: { maximum: 300 }
+  validates :selesdate, length: { maximum:255 }
   validates :image_url, presence: true, length: { maximum:255 }
   validates :item_url, presence: true, length: { maximum:255 }
   validates :summary, presence: true, length: { maximum:255 }

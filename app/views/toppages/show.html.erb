@@ -1,0 +1,22 @@
+<div class="container"> 
+  <div class="show-page">  
+    <h2><%= @article.title %></h2>
+    <img src="<%= @article.image_url %>" align=left width="200px" height="250px">
+    <h3>作者： <%= @article.author %></h3>
+    <h3>出版社： <%= @article.publisher_name %></h3>
+    <p>出版社： <%= @article.itemcaption %></p>
+    <p>商品ページ： <a><%= @article.item_url %></a></p>
+  <%  if logged_in? %>  
+    <%= link_to '削除する', @article, method: :delete, data: {confirm: '本当に削除しても宜しいですか？'}, class: 'btn btn-danger' %>
+  <% end %>  
+  </div>
+  
+  <hr>
+  
+  <div class="summary">
+    <h2>要約</h2>
+    <div class="well well-lg">
+      <%= @article.summary %>
+    </div>
+  </div>
+</div>

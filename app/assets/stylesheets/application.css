@@ -70,3 +70,12 @@
   width: 200px;
   height: 250px;
 }
+
+.show-page {
+  width: 940px;
+  height: 300px;
+}
+
+.show-page img {
+  margin-right: 30px;
+}

@@ -1,11 +1,26 @@
 <% if logged_in? %>
-  <%= current_user.name %>
+  <div class="container">
+  <div class="card">
+    <% @articles.each do |article| %>
+    <span class="border">
+        <div class="card-body col-md-3 text-center">
+            <img src="<%= article.image_url %>"> 
+            <h4 class="card-title text-left"><%= article.title %></h4>
+            <h6 class="card-subtitle mb-2 text-muted"><%= article.author %></h6>
+            <div class="text-center">
+              <%= link_to '要約を見る', toppage_path(article.id), class: 'btn  btn-primary ' %>
+            </div>
+        </div>
+      </span>  
+    <% end %>
+  </div>
+</div>  
 <% else %>
   <% content_for :cover do %>
     <div class="cover">
       <div class="cover-inner">
         <div class="cover-contents">
-          <a href="#" class="btn btn-success btn-lg">BOOKSUMMARY を始める</a>
+          <%= link_to 'BOOKSUMMARY を始める', new_user_path, class:"btn btn-success btn-lg" %>
         </div>
       </div>
     </div>
