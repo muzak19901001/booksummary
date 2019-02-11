@@ -23,20 +23,20 @@ class ArticlesController < ApplicationController
 
   def create
     result = RakutenWebService::Books::Book.search(isbn: params[:article][:isbn]).first
-    @article = Article.new(read(result))
+    @article = current_user.articles.new(read(result))
     @article[:summary] = params[:article][:summary]
 
     if @article.save
       flash[:success] = '投稿が完了しました'
       redirect_to root_url
     else
-      flash[:alert] = '投稿が失敗しました'
+      flash.now[:danger] = '投稿が失敗しました'
       render :show
     end
   end
   
   def destroy
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
     @article.destroy
     
     flash[:success] = '要約を削除しました'

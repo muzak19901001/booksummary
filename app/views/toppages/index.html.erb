@@ -1,20 +1,7 @@
 <% if logged_in? %>
-  <div class="container">
-  <div class="card">
-    <% @articles.each do |article| %>
-    <span class="border">
-        <div class="card-body col-md-3 text-center">
-            <img src="<%= article.image_url %>"> 
-            <h4 class="card-title text-left"><%= article.title %></h4>
-            <h6 class="card-subtitle mb-2 text-muted"><%= article.author %></h6>
-            <div class="text-center">
-              <%= link_to '要約を見る', toppage_path(article.id), class: 'btn  btn-primary ' %>
-            </div>
-        </div>
-      </span>  
-    <% end %>
-  </div>
-</div>  
+
+  <%= render 'articles', articles: @articles %>
+
 <% else %>
   <% content_for :cover do %>
     <div class="cover">

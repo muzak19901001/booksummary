@@ -6,7 +6,7 @@
     <h3>出版社： <%= @article.publisher_name %></h3>
     <p>出版社： <%= @article.itemcaption %></p>
     <p>商品ページ： <a><%= @article.item_url %></a></p>
-  <%  if logged_in? %>  
+  <%  if @article.user == current_user %>  
     <%= link_to '削除する', @article, method: :delete, data: {confirm: '本当に削除しても宜しいですか？'}, class: 'btn btn-danger' %>
   <% end %>  
   </div>

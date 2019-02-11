@@ -21,4 +21,6 @@ class User < ApplicationRecord
   has_secure_password
   validates :introduction, length: { maximum: 200}
   mount_uploader :image, ImageUploader
+  
+  has_many :articles
 end
