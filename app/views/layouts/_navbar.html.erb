@@ -14,7 +14,7 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'マイページ', user_path(current_user.id) %></li>
-        <li><%= link_to '要約を書く', new_article_path %></li>
+        <li><%= link_to '要約を書く', articles_path %></li>
         <li><%= link_to 'ログアウト', logout_path, method: :delete %></a></li>
       </ul>
 		</div>

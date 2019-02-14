@@ -5,7 +5,8 @@
     <h3>作者： <%= @article.author %></h3>
     <h3>出版社： <%= @article.publisher_name %></h3>
     <p>紹介文： <%= @article.itemcaption %></p>
-    <p>出版社： <a><%= @article.item_url %></a>
+    <p>出版社： <a><%= @article.publisher_name %></a>
+    <p><%= link_to '詳しい書籍情報を見る', @article.item_url, :target=>["_blank"] %></p>
   </div>
   
   <hr>

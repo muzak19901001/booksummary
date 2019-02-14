@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  def new
+  def index
     @articles = []
     
     @title = params[:title]
@@ -16,16 +16,16 @@ class ArticlesController < ApplicationController
     end
   end
   
-  def show
-    result = RakutenWebService::Books::Book.search(isbn: params[:id]).first
-    @article = Article.new(read(result))
+  def new
+    result = RakutenWebService::Books::Book.search(isbn: params[:format]).first
+    @article = current_user.articles.new(read(result))
   end
-
+  
   def create
     result = RakutenWebService::Books::Book.search(isbn: params[:article][:isbn]).first
     @article = current_user.articles.new(read(result))
     @article[:summary] = params[:article][:summary]
-
+    
     if @article.save
       flash[:success] = '投稿が完了しました'
       redirect_to root_url
@@ -34,6 +34,25 @@ class ArticlesController < ApplicationController
       render :show
     end
   end
+  
+  def edit
+    @article = current_user.articles.find_by(isbn: params[:id])
+  end
+  
+  def update
+    @article = current_user.articles.find_by(isbn: params[:article][:isbn])
+    summary = params[:article][:summary]
+    
+    if @article.update(summary: summary)
+      flash[:success] = '投稿を編集しました'
+      redirect_to toppage_url
+    else
+      flash[:danger] = '投稿を編集できませんでした'
+      render :show
+    end
+  end
+
+  
   
   def destroy
     @article = current_user.articles.find(params[:id])
@@ -44,7 +63,7 @@ class ArticlesController < ApplicationController
   end
   
   private
-  
+
   def read(result)
     isbn = result.isbn
     title = result.title

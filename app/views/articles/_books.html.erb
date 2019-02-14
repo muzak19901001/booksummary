@@ -7,7 +7,7 @@
             <h4 class="card-title text-left"><%= article.title %></h4>
             <h6 class="card-subtitle mb-2 text-muted"><%= article.author %></h6>
             <div class="text-center">
-              <%= link_to '要約を書く', article_path(article.isbn), class: 'btn  btn-primary ' %>
+                <%= link_to '要約を書く', new_article_path(article.isbn), class: 'btn  btn-primary ' %>
             </div>
         </div>
       </span>  

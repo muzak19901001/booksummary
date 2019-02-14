@@ -5,8 +5,10 @@
     <h3>作者： <%= @article.author %></h3>
     <h3>出版社： <%= @article.publisher_name %></h3>
     <p>出版社： <%= @article.itemcaption %></p>
-    <p>商品ページ： <a><%= @article.item_url %></a></p>
+    <p><%= link_to '詳しい書籍情報を見る', @article.item_url, :target=>["_blank"] %></p>
+    
   <%  if @article.user == current_user %>  
+    <%= link_to '編集する', edit_article_path(@article.isbn),  class: 'btn btn-success' %>
     <%= link_to '削除する', @article, method: :delete, data: {confirm: '本当に削除しても宜しいですか？'}, class: 'btn btn-danger' %>
   <% end %>  
   </div>
@@ -16,7 +18,7 @@
   <div class="summary">
     <h2>要約</h2>
     <div class="well well-lg">
-      <%= @article.summary %>
+      <%= simple_format(@article.summary) %>
     </div>
   </div>
 </div>
