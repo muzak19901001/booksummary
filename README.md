@@ -1,24 +1,22 @@
-# README
+### NAME
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+BOOKSUMMARY
 
-Things you may want to cover:
+### ツール
 
-* Ruby version
+書籍の要約を共有するツール
+（楽天API書籍を使用）
 
-* System dependencies
+### 主な機能
+* 会員登録機能
+* ログイン機能
+* 書籍情報検索機能
+* 要約投稿、編集、削除機能
+* 要約閲覧機能
 
-* Configuration
+### 使用言語・フレームワーク
+* Ruby(version: ruby 2.4.1p111)
+* Ruby on Rails(version: Rails 5.2.2)
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 開発環境
+* Cloud9
